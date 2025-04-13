@@ -3,6 +3,8 @@
 module SolidusSocial
   module Generators
     class InstallGenerator < Rails::Generators::Base
+      source_root "#{__dir__}/templates"
+
       class_option :auto_run_migrations, type: :boolean, default: false
 
       def add_stylesheets
@@ -11,6 +13,10 @@ module SolidusSocial
 
       def add_migrations
         run 'bin/rails railties:install:migrations FROM=solidus_social'
+      end
+
+      def copy_initializer
+        template "config/initializers/solidus_social.rb"
       end
 
       def run_migrations
