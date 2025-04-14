@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-solidus_branch = ENV.fetch('SOLIDUS_BRANCH', 'main')
-gem 'solidus', github: 'solidusio/solidus', branch: solidus_branch
+branch = ENV.fetch('SOLIDUS_BRANCH', 'main')
+gem 'solidus', github: 'solidusio/solidus', branch: branch
 
 # The solidus_frontend gem has been pulled out since v3.2
 gem 'solidus_frontend'

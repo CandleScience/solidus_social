@@ -18,15 +18,9 @@ module SolidusSocial
 
     engine_name 'solidus_social'
 
-    initializer 'solidus_social.environment', before: 'spree.environment' do
-      # Define file paths for loading resources
-      helpers_path = config.root.join('app/helpers/spree/admin/authentication_methods_helper.rb')
-      authentication_method_path = config.root.join('app/models/spree/authentication_method.rb')
-
-      # Load required files
-      [helpers_path, authentication_method_path].each do |path|
-        load path
-      end
+    # use rspec for tests
+    config.generators do |g|
+      g.test_framework :rspec
     end
 
     USER_DECORATOR_PATH = root.join(
@@ -41,17 +35,6 @@ module SolidusSocial
         # unloaded so that it is available to devise when loading routes
         load USER_DECORATOR_PATH
       end
-    end
-
-    initializer 'solidus_social.include_helpers' do
-      ActiveSupport.on_load(:action_view) do
-        include Spree::Admin::AuthenticationMethodsHelper
-      end
-    end
-
-    # use rspec for tests
-    config.generators do |g|
-      g.test_framework :rspec
     end
   end
 end

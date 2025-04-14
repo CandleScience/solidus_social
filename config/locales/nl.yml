@@ -23,5 +23,4 @@ nl:
     social_provider: 'Social Provider'
     please_confirm_your_email: 'Bevestig je email adres om verder te gaan'
     sign_in_with: 'Login met %{provider}'
-    stores: "Winkels"
     you_have_signed_in_with_these_services: "Je hebt in deze diensten ondertekend"

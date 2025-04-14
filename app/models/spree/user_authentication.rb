@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Spree::UserAuthentication < ActiveRecord::Base
+class Spree::UserAuthentication < ApplicationRecord
   belongs_to :user
 end
